@@ -7,18 +7,73 @@
   <title>AR Planet</title>
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+
 </head>
 
 <body>
-  <a-scene embedded arjs="sourceType: webcam;">
-    <!-- Marqueur pour Mars -->
-    <a-marker preset="kanji">
+  <a-scene vr-mode-ui="enabled: false;" loading-screen="enabled: false;"
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" id="scene" embedded gesture-detector>
+
+    <!-- ! NEPTUNE -->
+    <a-marker id="animated-neptune" type="pattern" preset="custom" url="asset/marker/neptune.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="neptune">
+      <a-sphere src="/asset/neptune.jpg" position="0 1 0" radius="1" segments-height="53">
+      </a-sphere>
+    </a-marker>
+
+
+    <!-- ! VENUS -->
+    <a-marker id="animated-venus" type="pattern" preset="custom" url="asset/marker/venus.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="venus">
+      <a-sphere src="/asset/venus.jpg" position="0 1 0" radius="1" segments-height="53">
+      </a-sphere>
+    </a-marker>
+
+    <!-- ! MERCURE -->
+    <a-marker id="animated-mercure" type="pattern" preset="custom" url="asset/marker/mercure.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="saturne">
+      <a-sphere src="/asset/mercure.jpg" position="0 1 0" radius="1" segments-height="53">
+      </a-sphere>
+    </a-marker>
+
+    <!-- ! JUPITER -->
+    <a-marker id="animated-saturne" type="pattern" preset="custom" url="asset/marker/jupiter.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="saturne">
+      <a-sphere src="/asset/jupiter.jpeg" position="0 1 0" radius="1" segments-height="53">
+      </a-sphere>
+    </a-marker>
+
+    <!-- ! SATURNE -->
+    <a-marker id="animated-saturne" type="pattern" preset="custom" url="asset/marker/saturne.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="saturne">
+      <a-sphere src="/asset/saturne.jpg" position="0 1 0" radius="1" segments-height="53">
+      </a-sphere>
+    </a-marker>
+
+    <!-- ! URANUS -->
+    <a-marker id="animated-uranus" type="pattern" preset="custom" url="asset/marker/uranus.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="saturne">
+      <a-sphere src="/asset/uranus.jpg" position="0 1 0" radius="1" segments-height="53">
+      </a-sphere>
+    </a-marker>
+
+    <!-- ! MARS -->
+    <a-marker id="animated-mars" type="pattern" preset="custom" url="asset/marker/mars.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="mars">
       <a-sphere src="/asset/mars.jpg" position="0 1 0" radius="1" segments-height="53">
       </a-sphere>
     </a-marker>
 
-    <!-- Marqueur pour la Terre -->
-    <a-marker preset="hiro">
+    <!-- ! SUN -->
+    <a-marker id="animated-sun" type="pattern" preset="custom" url="asset/marker/sun.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="sun">
+      <a-sphere src="/asset/soleil.jpg" position="0 1 0" radius="1" segments-height="53">
+      </a-sphere>
+    </a-marker>
+
+    <!-- ! EARTH -->
+    <a-marker id="animated-earth" type="pattern" preset="custom" url="asset/marker/marker-earth.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="earth">
       <a-sphere
         src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg"
         position="0 1 0" radius="1" segments-height="53">
