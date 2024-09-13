@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AR Planet</title>
+  <link rel="stylesheet" href="css/button.css">
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
 </head>
 
-<body>
+<body style="margin : 0px; overflow: hidden;">
   <a-scene vr-mode-ui="enabled: false;" loading-screen="enabled: false;"
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" id="scene" embedded gesture-detector>
     <a-assets>
@@ -39,6 +40,20 @@
     <a-assets>
       <a-asset-item id="venus" src="asset/venus.gltf"></a-asset-item>
     </a-assets>
+
+    <button id="show-rings" class="button-play">
+      <p>Voir</p>
+    </button>
+
+    <button id="show-solution" class="button-play">
+      <p>Solution</p>
+    </button>
+
+    <!-- Anneaux orbitaux -->
+    <a-entity id="ring-container"></a-entity>
+
+    <!-- Solution planètes -->
+    <a-entity id="planets-container"></a-entity>
 
     <!-- ! NEPTUNE -->
     <a-marker id="animated-neptune" type="pattern" preset="custom" url="asset/marker/neptune.patt"
@@ -169,5 +184,107 @@
 
   </a-scene>
 </body>
+
+<script>
+  // Fonction pour afficher les anneaux quand le bouton est cliqué
+  var showRings = document.getElementById('show-rings');
+  showRings.addEventListener('click', function () {
+    const ringContainer = document.getElementById('ring-container');
+
+    // Effacer les anneaux précédents (si besoin)
+    ringContainer.innerHTML = '';
+
+    // Ajouter les anneaux dynamiquement
+    ringContainer.innerHTML = `
+    <a-torus position="0 0 -7" radius="1" radius-tubular="0.001" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="1.2" radius-tubular="0.001" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="1.4" radius-tubular="0.001" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="1.6" radius-tubular="0.001" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="1.8" radius-tubular="0.001" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="2" radius-tubular="0.001" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="2.2" radius-tubular="0.001" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="2.4" radius-tubular="0.001" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    `;
+  });
+
+  // Fonction pour afficher/masquer les planètes quand le bouton est cliqué
+  var planetsVisible = false;
+
+  // Référence aux éléments
+  var showPlanets = document.getElementById('show-solution');
+  var planetsContainer = document.getElementById('planets-container');
+
+  // Gestionnaire d'événements pour le bouton
+  showPlanets.addEventListener('click', function () {
+    if (!planetsVisible) {
+      // Ajouter les planètes dynamiquement
+      planetsContainer.innerHTML = `
+            <a-entity id="sun-entity">
+                <a-sphere src="asset/soleil.jpg" position="0 0 -5" radius="0.5" segments-height="53"></a-sphere>
+            </a-entity>
+            <a-entity id="mercure-entity">
+                <a-sphere src="asset/mercure.jpg" orbit="radius: 1; speed: 0.005;" position="0.3 0.55 -4.5" radius="0.07" segments-height="53"></a-sphere>
+            </a-entity>
+            <a-entity id="venus-entity">
+                <a-sphere src="asset/venus.jpg" orbit="radius: 1.5; speed: 0.003;" position="0.5 -0.3 -3.4" radius="0.07" segments-height="53"></a-sphere>
+            </a-entity>
+            <a-entity id="earth-entity">
+                <a-sphere src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg"
+                    orbit="radius: 2; speed: 0.002;" position="0.59 0.1 -3" radius="0.07" segments-height="53"></a-sphere>
+            </a-entity>
+            <a-entity id="mars-entity">
+                <a-sphere src="asset/mars.jpg" orbit="radius: 2.5; speed: 0.0018;" position="0.56 -0.1 -2.5" radius="0.04" segments-height="53"></a-sphere>
+            </a-entity>
+            <a-entity id="jupiter-entity">
+                <a-sphere src="asset/jupiter.jpeg" orbit="radius: 3; speed: 0.001;" position="-0.64 -0.1 -2.5" radius="0.07" segments-height="53"></a-sphere>
+            </a-entity>
+            <a-entity id="saturne-entity">
+                <a-sphere src="asset/saturne.jpg" orbit="radius: 3.5; speed: 0.008;" position="0 -1 -3.5" radius="0.08" segments-height="53"></a-sphere>
+            </a-entity>
+            <a-entity id="uranus-entity">
+                <a-sphere src="asset/uranus.jpg" orbit="radius: 4; speed: 0.006;" position="0 1 -3.2" radius="0.07" segments-height="53"></a-sphere>
+            </a-entity>
+            <a-entity id="neptune-entity">
+                <a-sphere src="asset/neptune.jpg" orbit="radius: 4.5; speed: 0.004;" position="-0.5 0.5 -2.05" radius="0.05" segments-height="53"></a-sphere>
+            </a-entity>
+            `;
+
+      // Changer le texte du bouton
+      showPlanets.innerText = "Cacher";
+      // Mettre à jour l'état
+      planetsVisible = true;
+    } else {
+      // Effacer les planètes
+      planetsContainer.innerHTML = '';
+      // Changer le texte du bouton
+      showPlanets.innerText = "Solution";
+      // Mettre à jour l'état
+      planetsVisible = false;
+    }
+  });
+
+
+
+  // Composant personnalisé pour animer les planètes en orbite
+  // AFRAME.registerComponent('orbit', {
+  // schema: {
+  //    radius: { type: 'number', default: 2 }, // Rayon de l'orbite
+  //    speed: { type: 'number', default: 0.01 } // Vitesse de l'orbite
+  // },
+  // init: function () {
+  //    this.angle = 0;
+  // },
+  // tick: function (time, timeDelta) {
+  // this.angle += this.data.speed; // Incrémente l'angle pour créer un mouvement circulaire
+
+  // Calculer les nouvelles positions (X, Z) selon un mouvement circulaire à 90 degrés d'inclinaison
+  // var x = this.data.radius * Math.cos(this.angle);
+  // var y = this.data.radius * Math.sin(this.angle); // Ajout de l'axe Y pour incliner l'orbite à 90 degrés
+
+  // Met à jour la position de la planète
+  // this.el.setAttribute('position', { x: x, y: y, z: -5 }); // Ajustez z pour centrer l'orbite
+  // }
+  // });
+</script>
 
 </html>
