@@ -13,6 +13,33 @@
 <body style="margin : 0px; overflow: hidden;">
   <a-scene vr-mode-ui="enabled: false;" loading-screen="enabled: false;"
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" id="scene" embedded gesture-detector>
+    <a-assets>
+      <a-asset-item id="saturne" src="asset/saturn.gltf"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="earth" src="asset/earth.gltf"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="jupiter" src="asset/jupiter.gltf"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="mars" src="asset/mars.gltf"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="mercury" src="asset/mercury.gltf"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="neptune" src="asset/neptune.gltf"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="sol" src="asset/sol.gltf"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="uranus" src="asset/uranus.gltf"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="venus" src="asset/venus.gltf"></a-asset-item>
+    </a-assets>
 
     <button id="show-rings" class="button-play">
       <p>Voir</p>
@@ -31,71 +58,130 @@
     <!-- ! NEPTUNE -->
     <a-marker id="animated-neptune" type="pattern" preset="custom" url="asset/marker/neptune.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="neptune">
-      <a-sphere src="asset/neptune.jpg" position="0 1 0" radius="1" segments-height="53">
-      </a-sphere>
+      <!-- <a-sphere scale="1.76 1.76 1.76" src="/asset/neptune.jpg" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="30000" easing="linear" repeat="indefinite">
+        </a-animation>
+      </a-sphere> -->
+      <a-entity scale="1.76 1.76 1.76" gltf-model="#neptune" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="30000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
-
 
     <!-- ! VENUS -->
     <a-marker id="animated-venus" type="pattern" preset="custom" url="asset/marker/venus.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="venus">
-      <a-sphere src="asset/venus.jpg" position="0 1 0" radius="1" segments-height="53">
-      </a-sphere>
+      <!-- <a-sphere scale="0.44 0.44 0.44" src="/asset/venus.jpg" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="230000" easing="linear" repeat="indefinite">
+        </a-animation>
+      </a-sphere> -->
+      <a-entity scale="0.44 0.44 0.44" gltf-model="#venus" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="230000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
+
     </a-marker>
 
     <!-- ! MERCURE -->
     <a-marker id="animated-mercure" type="pattern" preset="custom" url="asset/marker/mercure.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="saturne">
-      <a-sphere src="asset/mercure.jpg" position="0 1 0" radius="1" segments-height="53">
-      </a-sphere>
+      <!-- <a-sphere scale="0.17 0.17 0.17" src="/asset/mercure.jpg" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="30000" easing="linear" repeat="indefinite">
+        </a-animation>
+      </a-sphere> -->
+      <a-entity scale="0.17 0.17 0.17" gltf-model="#mercury" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="30000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
 
     <!-- ! JUPITER -->
     <a-marker id="animated-saturne" type="pattern" preset="custom" url="asset/marker/jupiter.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="saturne">
-      <a-sphere src="asset/jupiter.jpeg" position="0 1 0" radius="1" segments-height="53">
-      </a-sphere>
+      <!-- <a-sphere scale="5.06 5.06 5.06" src="/asset/jupiter.jpeg" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="48000" easing="linear" repeat="indefinite">
+        </a-animation>
+      </a-sphere> -->
+      <a-entity scale="5.06 5.06 5.06" gltf-model="#jupiter" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="48000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
 
     <!-- ! SATURNE -->
     <a-marker id="animated-saturne" type="pattern" preset="custom" url="asset/marker/saturne.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="saturne">
-      <a-sphere src="asset/saturne.jpg" position="0 1 0" radius="1" segments-height="53">
-      </a-sphere>
+      <!-- <a-sphere scale="4.14 4.14 4.14" src="/asset/saturne.jpg" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="48000" easing="linear" repeat="indefinite">
+        </a-animation>
+      </a-sphere> -->
+      <a-entity scale="4.14 4.14 4.14" gltf-model="#saturne" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="48000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
+
+    <!-- <a-marker id="animated-earth" type="pattern" preset="custom" url="asset/marker/marker-earth.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="earth">
+
+      <a-entity scale="0.46 0.46 0.46" gltf-model="#saturne" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="20000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
+    </a-marker> -->
 
     <!-- ! URANUS -->
     <a-marker id="animated-uranus" type="pattern" preset="custom" url="asset/marker/uranus.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="saturne">
-      <a-sphere src="asset/uranus.jpg" position="0 1 0" radius="1" segments-height="53">
-      </a-sphere>
+      <!-- <a-sphere scale="1.83 1.83 1.83" src="/asset/uranus.jpg" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="28000" easing="linear" repeat="indefinite">
+        </a-animation>
+      </a-sphere> -->
+      <a-entity scale="1.83 1.83 1.83" gltf-model="#uranus" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="28000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
 
     <!-- ! MARS -->
     <a-marker id="animated-mars" type="pattern" preset="custom" url="asset/marker/mars.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="mars">
-      <a-sphere src="asset/mars.jpg" position="0 1 0" radius="1" segments-height="53">
-      </a-sphere>
+      <!-- <a-sphere scale="0.24 0.24 0.24" src="/asset/mars.jpg" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="20400" easing="linear" repeat="indefinite">
+        </a-animation>
+      </a-sphere> -->
+      <a-entity scale="0.24 0.24 0.24" gltf-model="#mars" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="20400" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
 
     <!-- ! SUN -->
     <a-marker id="animated-sun" type="pattern" preset="custom" url="asset/marker/sun.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="sun">
-      <a-sphere src="asset/soleil.jpg" position="0 1 0" radius="1" segments-height="53">
-      </a-sphere>
+      <!-- <a-sphere scale="108.8 108.8 108.8" src="/asset/soleil.jpg" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="20000" easing="linear" repeat="indefinite">
+        </a-animation>
+      </a-sphere> -->
+      <a-entity scale="50 50 50" gltf-model="#sol" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="20000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
 
     <!-- ! EARTH -->
-    <a-marker id="animated-earth" type="pattern" preset="custom" url="asset/marker/marker-earth.patt"
+    <!-- <a-marker id="animated-earth" type="pattern" preset="custom" url="asset/marker/marker-earth.patt"
       raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="earth">
-      <a-sphere
+      <a-sphere scale="0.46 0.46 0.46"
         src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg"
         position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="20000" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
+    </a-marker> -->
+
+    <a-marker id="animated-earth" type="pattern" preset="custom" url="asset/marker/marker-earth.patt"
+      raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="earth">
+      <a-entity scale="0.46 0.46 0.46" gltf-model="#earth" position="0 1 0" radius="1" segments-height="53">
+        <a-animation attribute="rotation" to="0 360 0" dur="20000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
 
     <!-- Caméra unique pour la scène -->
-    <a-entity camera></a-entity>
+    <a-entity position="4 1.8 2" look-controls wasd-control="acceleration:12">
+      <a-entity camera fov="10" zoom="zoom: 0.1" ></a-entity>
+    </a-entity>
+
   </a-scene>
 </body>
 
