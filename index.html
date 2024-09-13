@@ -5,14 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AR Planet</title>
+  <link rel="stylesheet" href="css/button.css">
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-
 </head>
 
-<body>
+<body style="margin : 0px; overflow: hidden;">
   <a-scene vr-mode-ui="enabled: false;" loading-screen="enabled: false;"
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" id="scene" embedded gesture-detector>
+
+    <button id="show-rings" class="button-play">
+      <p>Voir</p>
+    </button>
+
+    <!-- Anneaux orbitaux -->
+    <a-entity id="ring-container"></a-entity>
 
     <!-- ! NEPTUNE -->
     <a-marker id="animated-neptune" type="pattern" preset="custom" url="asset/marker/neptune.patt"
@@ -84,5 +91,32 @@
     <a-entity camera></a-entity>
   </a-scene>
 </body>
+
+<script>
+  // Fonction pour afficher les anneaux quand le bouton est cliqué
+  document.getElementById('show-rings').addEventListener('click', function () {
+    const ringContainer = document.getElementById('ring-container');
+
+    // Effacer les anneaux précédents (si besoin)
+    ringContainer.innerHTML = '';
+
+    // Ajouter les anneaux dynamiquement
+    ringContainer.innerHTML = `
+    <a-torus position="0 0 -7" radius="1" radius-tubular="0.01" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="1.2" radius-tubular="0.01" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="1.4" radius-tubular="0.01" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="1.6" radius-tubular="0.01" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="1.8" radius-tubular="0.01" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="2" radius-tubular="0.01" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="2.2" radius-tubular="0.01" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    <a-torus position="0 0 -7" radius="2.4" radius-tubular="0.01" color="#FFFFFF" rotation="0 0 0"></a-torus>
+    `;
+
+    // Optionnel: Forcer le rendu après ajout
+    ringContainer.addEventListener('loaded', function () {
+      console.log("Anneaux ajoutés !");
+    });
+  });
+</script>
 
 </html>
